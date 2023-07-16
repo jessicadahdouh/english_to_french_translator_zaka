@@ -1,6 +1,6 @@
 from keras.utils import pad_sequences
 
-from en_to_fr_model import *
+from model.en_to_fr_model import *
 
 # can be later added to a config.yaml file
 english_dataset_file_path = r'machine_learning_certification\Challenge 7\en.csv'
@@ -101,6 +101,7 @@ def train_model(input_sentence, model):
     translator.test_model()
     return translator.model
 
+
 def load_tokenizer(file_path):
     with open(file_path, 'rb') as f:
         tokenizer = pickle.load(f)
@@ -111,18 +112,19 @@ def load_tokenizer(file_path):
 def translate_text(input_sentence, model):
     train_model(input_sentence, model)
     # Tokenize the input sentence
-    tokenizer_en = load_tokenizer(tokenizer_file_path_en)
-    tokenizer_fr = load_tokenizer(tokenizer_file_path_fr)
-
-    input_sequence = tokenizer_en.texts_to_sequences([input_sentence])
-    input_sequence = pad_sequences(input_sequence, maxlen=max_sequence_length, padding='post')
+#     tokenizer_en = load_tokenizer(tokenizer_file_path_en)
+#     tokenizer_fr = load_tokenizer(tokenizer_file_path_fr)
 #
+#     input_sequence = tokenizer_en.texts_to_sequences([input_sentence])
+#     input_sequence = pad_sequences(input_sequence, maxlen=max_sequence_length, padding='post')
+# #
+# #
+# #     # Predict the output sequence
+#     output_sequence = model.predict(input_sequence)
+#     output_sequence = np.argmax(output_sequence, axis=-1)
+# #
+# #
+#     output_sentence = " ".join(tokenizer_fr.index_word[token] for token in output_sequence[0] if token != 0)
 #
-#     # Predict the output sequence
-    output_sequence = model.predict(input_sequence)
-    output_sequence = np.argmax(output_sequence, axis=-1)
-#
-#
-    output_sentence = " ".join(tokenizer_fr.index_word[token] for token in output_sequence[0] if token != 0)
-#
-    return output_sentence.strip()
+    # return output_sentence.strip()
+    return "Hello"

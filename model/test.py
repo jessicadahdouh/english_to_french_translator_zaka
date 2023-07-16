@@ -2,6 +2,7 @@ import gradio as gr
 
 
 def translate(text):
+
     return "Hello " + text + "!"
 
 
